@@ -1,3 +1,3 @@
 # DataScienceNayelly
 
-## this prject is to improve my website
+### This project is to improve showcase Data Science Projects. 
