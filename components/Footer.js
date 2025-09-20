@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer>
       {/* Top strip with dark green background */}
-      <div className="bg-[#2A363B] text-[#DAD7CD] py-6">
+      <div className="bg-[#191927] text-[#DAD7CD] py-6">
         <div className="container mx-auto flex flex-col items-center">
           {/* Social Icons */}
           <div className="flex space-x-6">
@@ -32,7 +32,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom copyright section with #DAD7CD background */}
-      <div className="bg-[#DAD7CD] text-black py-4">
+      <div className="bg-[#E4E3EC] text-black py-4">
         <p className="text-sm text-center font-medium">
           Copyright © {new Date().getFullYear()} Nayelly Zurita – All Rights Reserved.
         </p>

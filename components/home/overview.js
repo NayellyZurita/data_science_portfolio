@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function SectionsOverview() {
   const items = [
     {
@@ -6,82 +8,89 @@ export default function SectionsOverview() {
       blurb:
         "Who I am and what I do: data engineering, analytics, and ML. A quick story of my journey, the tools I use, and the problems I love solving.",
       iconSrc: "/accept.png",
-      href: "#about",
-      bg: "security.png",
+      href: "/about",
+      bg: "/security.png",
     },
     {
       id: "projects",
       title: "Projects",
       blurb:
-        "Hands‑on builds across data engineering, data science, and ML: streaming pipelines, cloud data platforms, model training, and dashboards.",
+        "Hands-on builds across data engineering, data science, and ML: streaming pipelines, cloud data platforms, model training, and dashboards.",
       iconSrc: "/artificial-intelligence.png",
-      href: "#projects",
-      bg: "ai.jpg",
+      href: "/projects",
+      bg: "/ai.jpg",
     },
     {
       id: "blog",
       title: "Blog",
       blurb:
-        "Short write‑ups on experiments, notes from what I’m learning, and deep dives into performance, reliability, and MLOps.",
+        "Short write-ups on experiments, notes from what I’m learning, and deep dives into performance, reliability, and MLOps.",
       iconSrc: "/blogging.png",
-      href: "#blog",
-      bg: "geo.jpg",
+      href: "/blog",
+      bg: "/geo.jpg",
     },
   ];
 
   return (
-    <section id="overview" className="relative isolate bg-[#99B898] text-white">
+    <section id="overview" className="relative isolate bg-dark text-white">
       {/* Intro header */}
-      <div className="relative mx-auto flex min-h-[50vh] max-w-6xl flex-col items-center justify-center px-6 text-center">
-        <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-white/85">
-          What you’ll find here
+      <div className="relative mx-auto flex min-h-[60vh] max-w-6xl flex-col items-center justify-center px-6 text-center">
+        <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-grey">
+          What you will find here
         </h2>
-        <p className="mt-4 max-w-3xl text-base sm:text-lg md:text-xl text-white/85">
-          A quick tour of the core sections—my background, hands‑on builds, and writing.
+        <p className="mt-4 max-w-3xl text-base sm:text-lg md:text-xl text-[#00D7D2]">
+          A quick tour of the core sections—my background, hands-on builds, and writing.
         </p>
-        {/* Scroll to explore */}
-        <div className="mt-10 flex flex-col items-center gap-3">
-          <span className="text-[10px] tracking-[0.45em] uppercase" >
+        <div className="mt-8 flex flex-col items-center gap-6">
+          <span className="text-[10px] text-teal tracking-[0.45em] uppercase">
             Scroll to Explore
           </span>
-          <span className="h-10 w-px animate-pulse rounded bg-[#2A363B]" />
+          <span className="h-10 w-px animate-pulse rounded bg-purple" />
         </div>
       </div>
 
-      {/* Full-screen sections with left-aligned layout like the reference */}
+      {/* Sections */}
       <div id="overview-list" className="relative">
         {items.map((item) => (
-          <article key={item.id} className="relative min-h-[40vh]">
+          <article key={item.id} className="relative min-h-[30vh]">
             {/* Background image */}
             <div
-              className="absolute inset-0 bg-cover bg-center opacity-60"
+              className="absolute inset-0 bg-cover bg-center opacity-70"
               style={{ backgroundImage: `url(${item.bg})` }}
               aria-hidden="true"
             />
-            {/* Dark overlay for readability */}
+            {/* Dark overlay */}
             <div className="absolute inset-0 bg-black/55" aria-hidden="true" />
 
             {/* Content */}
-            <div className="relative z-10 mx-auto max-w-6xl px-6 py-24 md:py-28">
-              <div className="flex items-start gap-6">
-                {/* Icon column */}
-                <div className="relative h-[220px] w-[220px] hover:opacity-70 transition drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)]">
-                  <img src={item.iconSrc} alt="" className="h-full w-full object-contain" />
-                </div>
+            <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 md:py-24">
+              <div className="flex flex-col md:flex-row items-start item-center gap-8 md:gap-12">
+                {/* Icon */}
+                <img
+                  src={item.iconSrc}
+                  alt={`${item.title} icon`}
+                  className="h-16 w-14 flex-none shrink-0 object-contain invert brightness-0"
+                  loading="lazy"
+                />
 
-                {/* Text column */}
-                <div>
-                  <h3 className="text-4xl font-semibold sm:text-5xl md:text-6xl">{item.title}</h3>
-                  <p className="mt-4 max-w-4xl text-sm leading-relaxed sm:text-base md:text-lg text-white/90">
-                    {item.blurb}
-                  </p>
-                  <a
+                {/* Text + CTA */}
+                <div className="max-w-4xl">
+                  <Link href={item.href} className="group block">
+                    <h3 className="text-4xl font-semibold sm:text-5xl md:text-6xl group-hover:underline">
+                      {item.title}
+                    </h3>
+                    <p className="mt-4 text-base leading-relaxed sm:text-base md:text-lg text-[#E4E3EC]">
+                      {item.blurb}
+                    </p>
+                  </Link>
+
+                  <Link
                     href={item.href}
-                    className="mt-8 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#E84A5F] text-white/90 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#E84A5F]/60"
+                    className="mt-6 inline-flex h-12 w-12 items-center justify-center rounded-full bg-teal text-white/90 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#E84A5F]/60"
                     aria-label={`Go to ${item.title}`}
                   >
                     <span className="text-2xl leading-none">+</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

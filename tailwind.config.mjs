@@ -12,6 +12,12 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        // New custom palette
+        grey: "#E4E3EC",
+        teal: "#00D7D2",
+        purple: "#8E72EE",
+        dark: "#191927",
+
         pgreen:{
           light: "#A3B18A",
           dark: "#283618",

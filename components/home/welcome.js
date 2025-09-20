@@ -1,4 +1,4 @@
-export default function Welcome() {
+export default function WelcomeSection() {
   return (
     <section className="relative h-screen">
       {/* Background video */}
@@ -24,10 +24,10 @@ export default function Welcome() {
         <div className="container mx-auto grid gap-10 px-6 md:grid-cols-2">
           {/* Left copy */}
           <div className="max-w-xl">
-            <h1 className="text-white/85 text-5xl font-extrabold leading-tight sm:text-5xl">
+            <h1 className="text-white/100 text-5xl font-extrabold leading-tight sm:text-5xl">
               Data to Decisions — Fast, Secure, Real-Time.
             </h1>
-            <p className="mt-4 text-lg text-white/85">
+            <p className="mt-4 text-lg text-teal">
               I build modern analytics and engineering systems: streaming pipelines, cloud data
               platforms, and dashboards that ship value.
             </p>

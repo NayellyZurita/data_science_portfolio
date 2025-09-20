@@ -8,7 +8,7 @@ export default function NavBar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="bg-[#2A363B] text-[#DAD7CD] sticky top-0 z-50 shadow">
+    <header className="bg-[#191927] text-[#E4E3EC] sticky top-0 z-50 shadow">
       {/* Top Row: brand (image + name) and hamburger */}
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* Left: Image + Name (together, on the same side) */}

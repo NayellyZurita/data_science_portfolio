@@ -1,7 +1,7 @@
 
 import NavigationBar from "../components/NavBar";
-import WelcomeSection from "@/components/Home/welcome";
-import SectionsOverview from "@/components/Home/overview";
+import WelcomeSection from "@/components/home/welcome";
+import SectionsOverview from "@/components/home/overview";
 import Footer from "../components/Footer";
 
 
