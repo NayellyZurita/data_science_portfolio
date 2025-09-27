@@ -6,7 +6,7 @@ const EXPERIENCES = [
     id: "exp-1",
     company: "Ensign College Tech-Lab",
     period: "2024 – 2025",
-    image: "/stock.jpg",
+    image: "/Grafana_Dashboard.jpg",
     roles: [
       { title: "Data Engineer" },
       { title: "Computer Science TA" },
@@ -33,7 +33,7 @@ const EXPERIENCES = [
     id: "exp-2",
     company: "The Finance Consulting Group",
     period: "2024-2024",
-    image: "/web.jpg",
+    image: "/web-dev.jpg",
     roles: [
       { title: "Web Developer" },
     ],
