@@ -17,7 +17,7 @@ export default function BlogCta() {
           </div>
         </div>
 
-        <div className="order-1 flex-1 text-center md:order-2 md:text-left">
+        <div className="order-1 flex-1 text-center text-dark md:order-2 md:text-left">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal/80">
             Keep Exploring
           </p>

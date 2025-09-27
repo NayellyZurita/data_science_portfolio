@@ -4,7 +4,7 @@ import Link from "next/link";
 const POSTS = [
   {
     id: "post-ml-observability",
-    title: "Building ML Observability That Actually Scales",
+    title: "Under construction...",
     description:
       "Lessons from instrumenting feature pipelines, drift monitors, and feedback loops across fast shipping teams.",
     date: "Feb 2025",
@@ -16,7 +16,7 @@ const POSTS = [
   },
   {
     id: "post-streaming-notebook",
-    title: "Designing a Streaming Notebook for Real-Time Insights",
+    title: "Under construction...",
     description:
       "How I prototyped a Kafka + TimescaleDB notebook that helps analysts reason about high-volume event streams.",
     date: "Jan 2025",
@@ -27,19 +27,19 @@ const POSTS = [
   },
   {
     id: "post-dashboard-playbook",
-    title: "Dashboard Playbook: From Metric Friction to Adoption",
+    title: "Under construction...",
     description:
       "A framework for landing dashboards that teams actually depend on—covering stakeholder interviews to UX polish.",
     date: "Dec 2024",
     readingTime: "10 min",
     category: "Analytics",
     image: "/web.jpg",
-    href: "https://www.linkedin.com/in/nayelly-zurita",
+    href: "https://www.linkedin.com/in/nayellyzurita",
     external: true,
   },
   {
     id: "post-vertex-devops",
-    title: "Vertex Pipelines: Shipping Experiments with Guardrails",
+    title: "Under construction...",
     description:
       "Reference architecture and IaC snippets that kept our research-to-prod loop under 30 minutes.",
     date: "Nov 2024",

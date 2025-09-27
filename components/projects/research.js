@@ -14,13 +14,13 @@ const TRACKS = [
   },
   {
     id: "machine-learning",
-    title: "ML",
+    title: "AI-ML",
     blurb: "Model development, evaluation, and real-time inference.",
   },
   {
-    id: "developer",
-    title: "Developer",
-    blurb: "Full-stack products that ship research to production.",
+    id: "analytics",
+    title: "Analytics",
+    blurb: "Dashboards, decision intelligence, and stakeholder storytelling.",
   },
 ];
 
@@ -76,17 +76,17 @@ const PROJECT_GROUPS = {
       imageAlt: "MLOps security and monitoring visuals",
     },
   ],
-  developer: [
+  analytics: [
     {
-      title: "Portfolio Platform",
-      description: "Next.js site with modular sections for data storytelling and project demos.",
-      href: "#developer",
+      title: "Executive Metrics Portal",
+      description: "Next.js analytics hub surfacing KPIs with drilldowns and commentary workflows.",
+      href: "#analytics",
       image: "/pro.jpg",
-      imageAlt: "Developer working on a portfolio interface",
+      imageAlt: "Analytics dashboard showcasing executive metrics",
     },
     {
       title: "Realtime Ops Dashboard",
-      description: "Socket-powered dashboard surfacing ops metrics with granular permissions.",
+      description: "Socket-powered dashboard surfacing ops metrics with alerting and user permissions.",
       href: "https://nayelly.dev",
       external: true,
       image: "/geo.jpg",

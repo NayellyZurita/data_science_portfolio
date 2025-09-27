@@ -3,16 +3,27 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const NAV_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/blog", label: "Blog" },
+];
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 
   return (
     <header className="bg-dark text-grey sticky top-0 z-50 shadow">
       {/* Top Row: brand (image + name) and hamburger */}
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        {/* Left: Image + Name (together, on the same side) */}
-        <div className="flex items-center gap-3">
+        {/* Left: Image + Name (linked to home) */}
+        <Link href="/" className="flex items-center gap-3">
           <Image
             src="/neural.png"
             alt="Nayelly Zurita logo"
@@ -21,34 +32,31 @@ export default function NavBar() {
             className="rounded-full"
             priority
           />
-          <span className="text-xl sm:text-2xl font-bold tracking-wide">
+          <span
+            className={`text-xl sm:text-2xl font-bold tracking-wide transition-colors ${
+              pathname === "/" ? "text-teal" : "text-grey hover:text-teal"
+            }`}
+          >
             Nayelly Zurita
           </span>
-        </div>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:block">
           <ul className="flex items-center gap-8 text-base font-semibold">
-            <li>
-              <Link href="/" className="hover:underline underline-offset-4">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:underline underline-offset-4">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/projects" className="hover:underline underline-offset-4">
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog" className="hover:underline underline-offset-4">
-                Blog
-              </Link>
-            </li>
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`transition-colors hover:text-teal ${
+                    isActive(link.href) ? "text-teal" : "text-grey"
+                  }`}
+                  aria-current={isActive(link.href) ? "page" : undefined}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
 
@@ -83,42 +91,20 @@ export default function NavBar() {
       >
         <nav className="px-6 py-3 border-t border-white/10">
           <ul className="flex flex-col gap-4 text-lg font-semibold">
-            <li>
-              <Link
-                href="/"
-                className="block py-2"
-                onClick={() => setOpen(false)}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about"
-                className="block py-2"
-                onClick={() => setOpen(false)}
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/projects"
-                className="block py-2"
-                onClick={() => setOpen(false)}
-              >
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/blog"
-                className="block py-2"
-                onClick={() => setOpen(false)}
-              >
-                Blog
-              </Link>
-            </li>
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`block rounded-lg px-2 py-2 transition-colors ${
+                    isActive(link.href) ? "bg-teal/20 text-teal" : "text-grey hover:text-teal"
+                  }`}
+                  onClick={() => setOpen(false)}
+                  aria-current={isActive(link.href) ? "page" : undefined}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>

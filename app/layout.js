@@ -30,7 +30,7 @@ export const metadata = {
     title: "Nayelly Zurita | Data Science & Engineering Portfolio",
     description:
       "Projects and research blending data engineering, machine learning, and analytics by Nayelly Zurita.",
-    creator: "@nayellyz",
+    creator: "@nayellyzurita",
     images: ["/pro.jpg"],
   },
   icons: {

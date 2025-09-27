@@ -30,10 +30,10 @@ export default function BlogProjectsLink() {
         <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-[32px] border border-slate-800/60 bg-slate-900/70 shadow-xl">
           <div className="relative aspect-[4/5]">
             <Image
-              src="/artificial-intelligence.png"
+              src="/ai.jpg"
               alt="Illustration of a data project storyboard"
               fill
-              sizes="(min-width: 1024px) 280px, (min-width: 768px) 40vw, 80vw"
+              sizes="(min-width: 1024px) 220px, (min-width: 768px) 40vw, 80vw"
               className="object-cover"
             />
           </div>
