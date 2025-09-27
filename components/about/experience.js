@@ -25,6 +25,8 @@ const EXPERIENCES = [
       { name: "Docker", level: 75 },
       { name: "Grafana", level: 80 },
       { name: "Kubernetes", level: 55 },
+      { name: "Tableau", level: 65 },
+      { name: "Power BI", level: 60 },
     ],
   },
   {
@@ -36,16 +38,16 @@ const EXPERIENCES = [
       { title: "Web Developer" },
     ],
     highlights: [
-      "Designed KPI tracking and adoption analytics for new feature launches.",
-      "Built data transformations and automated reports to surface growth drivers.",
-      "Drafted Lean Canvas and competitor research to guide iteration strategy.",
+      "Boosted mobile site performance 40% and met ADA checks.",
+      "Led weekly Figma sprints to align stakeholders on UX and scope.",
+      "Documented a maintenance playbook so content owners ship updates solo.",
     ],
     skills: [
-      { name: "Python (Pandas)", level: 85 },
-      { name: "SQL", level: 80 },
-      { name: "Data Modeling", level: 70 },
-      { name: "Visualization", level: 75 },
-      { name: "Next.js (portfolio)", level: 60 },
+      { name: "JavaScript", level: 80 },
+      { name: "React", level: 75 },
+      { name: "Databases", level: 70 },
+      { name: "Git", level: 80 },
+      { name: "Jira", level: 65 },
     ],
   },
 ];

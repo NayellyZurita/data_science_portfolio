@@ -8,7 +8,7 @@ export default function NavBar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="bg-[#191927] text-[#E4E3EC] sticky top-0 z-50 shadow">
+    <header className="bg-dark text-grey sticky top-0 z-50 shadow">
       {/* Top Row: brand (image + name) and hamburger */}
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* Left: Image + Name (together, on the same side) */}
@@ -40,7 +40,7 @@ export default function NavBar() {
               </Link>
             </li>
             <li>
-              <Link href="/portfolio" className="hover:underline underline-offset-4">
+              <Link href="/projects" className="hover:underline underline-offset-4">
                 Projects
               </Link>
             </li>
@@ -55,7 +55,7 @@ export default function NavBar() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden inline-flex items-center justify-center p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#355C7D] focus:ring-[#DAD7CD]"
+          className="md:hidden inline-flex items-center justify-center p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-ocean focus:ring-sand"
           aria-label="Toggle menu"
           aria-expanded={open}
         >
@@ -77,7 +77,7 @@ export default function NavBar() {
 
       {/* Mobile slide-down bar */}
       <div
-        className={`md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out bg-[#2e4e6a] ${
+        className={`md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out bg-midnight ${
           open ? "max-h-96" : "max-h-0"
         }`}
       >
@@ -103,7 +103,7 @@ export default function NavBar() {
             </li>
             <li>
               <Link
-                href="/portfolio"
+                href="/projects"
                 className="block py-2"
                 onClick={() => setOpen(false)}
               >

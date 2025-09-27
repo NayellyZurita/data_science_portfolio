@@ -38,7 +38,7 @@ export default function SectionsOverview() {
         <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-grey">
           What you will find here
         </h2>
-        <p className="mt-4 max-w-3xl text-base sm:text-lg md:text-xl text-[#00D7D2]">
+        <p className="mt-4 max-w-3xl text-base sm:text-lg md:text-xl text-teal">
           A quick tour of the core sections—my background, hands-on builds, and writing.
         </p>
         <div className="mt-8 flex flex-col items-center gap-6">
@@ -79,14 +79,14 @@ export default function SectionsOverview() {
                     <h3 className="text-4xl font-semibold sm:text-5xl md:text-6xl group-hover:underline">
                       {item.title}
                     </h3>
-                    <p className="mt-4 text-base leading-relaxed sm:text-base md:text-lg text-[#E4E3EC]">
+                    <p className="mt-4 text-base leading-relaxed sm:text-base md:text-lg text-grey">
                       {item.blurb}
                     </p>
                   </Link>
 
                   <Link
                     href={item.href}
-                    className="mt-6 inline-flex h-12 w-12 items-center justify-center rounded-full bg-teal text-white/90 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#E84A5F]/60"
+                    className="mt-6 inline-flex h-12 w-12 items-center justify-center rounded-full bg-teal text-white/90 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-accent/60"
                     aria-label={`Go to ${item.title}`}
                   >
                     <span className="text-2xl leading-none">+</span>

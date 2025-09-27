@@ -1,9 +1,8 @@
 
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
+import NavigationBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
-
-export default function Home() {
+export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col">
       <NavigationBar />
