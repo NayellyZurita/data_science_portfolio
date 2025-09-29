@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Nayelly Zurita – Data Science & Engineering Portfolio
 
-## Getting Started
+A personal portfolio built with Next.js 15 and Tailwind CSS to showcase data engineering, analytics, and machine learning work. The site highlights professional experience, project walkthroughs, and writing, while offering a cohesive design system across all routes.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Home** – Immersive hero video, section overview, and CTAs that route to projects and blog content.
+- **About** – Detailed biography, rotating hobbies gallery, and a timeline of roles with skill bars and impact-focused highlights.
+- **Projects** – Full-screen hero with background imagery, track navigation (Data Science, Data Engineering, Machine Learning, Analytics), and project cards featuring imagery, internal anchors, and external case-study links. Includes a blog CTA for cross-navigation.
+- **Blog** – Modern article grid with category/date/read-time badges and external/internal routing. Ends with a CTA to explore projects.
+- **Global Navigation & Footer** – Responsive navbar with active state indicators and social/contact links, plus a consistent footer across all pages.
+
+## Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Language**: React 19 + JavaScript modules
+- **Styling**: [Tailwind CSS 3.4](https://tailwindcss.com/) with a custom color palette
+- **Icons**: [Lucide](https://lucide.dev/) and [react-icons](https://react-icons.github.io/react-icons/)
+- **Media**: Optimized images via `next/image` with responsive `sizes`
+
+## Project Structure
+
+```
+app/
+  layout.js          // Root layout and metadata
+  page.js            // Landing page
+  about/
+  blog/
+  projects/
+components/
+  NavBar.js          // Global navigation
+  Footer.js          // Global footer
+  home/              // Home screen sections
+  about/             // Profile, experience, hobbies
+  projects/          // Project hero, CTA, track sections
+  blog/              // Blog section + CTA
+public/
+  media assets (photos, icons, video)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Development Scripts
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+| Command         | Description                                   |
+|-----------------|-----------------------------------------------|
+| `npm install`   | Install dependencies                          |
+| `npm run dev`   | Start the dev server with Turbopack (port 3000) |
+| `npm run lint`  | Run ESLint (recommended before committing)     |
+| `npm run build` | Create the production build                    |
+| `npm run start` | Serve the production build                     |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Styling & Design Notes
 
-## Learn More
+- Tailwind theme tokens (`dark`, `teal`, `purple`, `night`, etc.) live in `tailwind.config.mjs` and are reused across sections to keep colors consistent.
+- Typography uses system fallbacks (`Inter`, `JetBrains Mono`) configured in `app/globals.css` to avoid external font fetches during offline builds.
+- `next/image` components include `sizes` attributes to improve responsive loading, and `priority` is reserved for above-the-fold assets only.
 
-To learn more about Next.js, take a look at the following resources:
+## Content & Customization
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Update biography, experience highlights, and skill lists in `components/about/`.
+- Swap project metadata (titles, descriptions, links, images) in `components/projects/research.js` and `components/projects/blog-cta.js`.
+- Blog cards are hard-coded in `components/blog/section.js`; add or remove entries as needed.
+- Media assets live in `public/`; replace placeholder imagery with your own photos or graphics.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+1. Ensure the build passes locally: `npm run build`.
+2. Commit and push to your GitHub repository.
+3. On [Vercel](https://vercel.com), import the repo and keep the default build command (`npm run build`).
+4. Configure any custom domains in the Vercel project settings (optional).
+5. Future pushes to the connected branch automatically trigger new deployments.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

@@ -7,12 +7,12 @@ export const metadata = {
   },
   description:
     "Data engineering, analytics, and machine learning projects, experiments, and writing by Nayelly Zurita.",
-  metadataBase: new URL("https://nayellyzurita.dev"),
+  metadataBase: new URL("https://nayellyzurita.com"),
   openGraph: {
     title: "Nayelly Zurita | Data Science & Engineering Portfolio",
     description:
       "Explore projects, research, and writing across data engineering, analytics, and machine learning.",
-    url: "https://nayellyzurita.dev",
+    url: "https://nayellyzurita.com",
     siteName: "Nayelly Zurita Portfolio",
     type: "website",
     locale: "en_US",
@@ -34,9 +34,9 @@ export const metadata = {
     images: ["/pro.jpg"],
   },
   icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/icon.png",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 

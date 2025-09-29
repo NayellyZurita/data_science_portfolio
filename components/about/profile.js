@@ -9,7 +9,7 @@ export default function ProfileSection() {
           <div className="group relative h-[320px] w-[320px] rounded-[2rem] p-[6px] bg-gradient-to-tr from-purple to-teal transition-colors duration-700 hover:from-teal hover:to-purple md:h-[360px] md:w-[360px]">
             <div className="flex h-full w-full items-center justify-center rounded-[1.8rem] bg-grey">
               <Image
-                src="/Nayelly-Zurita.jpg"
+                src="/nayelly-zurita-portfolio-photo.jpg"
                 alt="Portrait of Nayelly Zurita"
                 width={360}
                 height={360}
