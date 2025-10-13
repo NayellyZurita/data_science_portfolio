@@ -41,7 +41,7 @@ export default function ProjectsCta() {
         <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-[32px] border border-slate-800/60 bg-slate-900/70 shadow-xl">
           <div className="relative aspect-[4/5]">
             <Image
-              src="/ai.jpg"
+              src="/ai-chip-intelligence-technology-deep-learning.jpg"
               alt="Illustration of data projects and engineering workflows"
               fill
               sizes="(min-width: 1024px) 320px, (min-width: 768px) 40vw, 80vw"

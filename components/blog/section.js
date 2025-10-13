@@ -1,65 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const POSTS = [
-  {
-    id: "post-ml-observability",
-    title: "Under construction...",
-    description:
-      "Lessons from instrumenting feature pipelines, drift monitors, and feedback loops across fast shipping teams.",
-    date: "Feb 2025",
-    readingTime: "8 min",
-    category: "MLOps",
-    image: "/artificial-intelligence.png",
-    href: "https://github.com/nayellyzurita",
-    external: true,
-  },
-  {
-    id: "post-streaming-notebook",
-    title: "Under construction...",
-    description:
-      "How I prototyped a Kafka + TimescaleDB notebook that helps analysts reason about high-volume event streams.",
-    date: "Jan 2025",
-    readingTime: "6 min",
-    category: "Data Engineering",
-    image: "/data-engineer.png",
-    href: "/projects#data-engineer",
-  },
-  {
-    id: "post-dashboard-playbook",
-    title: "Under construction...",
-    description:
-      "A framework for landing dashboards that teams actually depend on—covering stakeholder interviews to UX polish.",
-    date: "Dec 2024",
-    readingTime: "10 min",
-    category: "Analytics",
-    image: "/web.jpg",
-    href: "https://www.linkedin.com/in/nayellyzurita",
-    external: true,
-  },
-  {
-    id: "post-vertex-devops",
-    title: "Under construction...",
-    description:
-      "Reference architecture and IaC snippets that kept our research-to-prod loop under 30 minutes.",
-    date: "Nov 2024",
-    readingTime: "7 min",
-    category: "DevOps",
-    image: "/stock.jpg",
-    href: "/projects#machine-learning",
-  },
-];
+import { posts } from "@/app/blog/posts";
 
 function BlogCard({ post }) {
-  const isExternal = Boolean(post.external);
-  const Wrapper = isExternal ? "a" : Link;
-  const linkProps = isExternal
-    ? { href: post.href, target: "_blank", rel: "noopener noreferrer" }
-    : { href: post.href };
+  const href = `/blog/${post.slug}`;
 
   return (
-    <Wrapper
-      {...linkProps}
+    <Link
+      href={href}
       className="group flex h-full flex-col overflow-hidden rounded-[26px] border border-white/10 bg-white/5 backdrop-blur transition hover:-translate-y-1 hover:border-teal/60 hover:bg-white/10"
     >
       <div className="relative h-56 w-full overflow-hidden">
@@ -81,20 +30,16 @@ function BlogCard({ post }) {
         <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-teal/80">
           <span>{post.readingTime}</span>
           <span className="h-px w-8 bg-teal/40" aria-hidden="true" />
-          <span>{isExternal ? "External" : "Read"}</span>
+          <span>Read</span>
         </div>
-        <h3 className="text-xl font-bold leading-tight md:text-2xl">
-          {post.title}
-        </h3>
-        <p className="text-sm leading-relaxed text-slate-300">
-          {post.description}
-        </p>
+        <h3 className="text-xl font-bold leading-tight md:text-2xl">{post.title}</h3>
+        <p className="text-sm leading-relaxed text-slate-300">{post.description}</p>
         <span className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-teal group-hover:text-white">
-          {isExternal ? "Visit article" : "Open detail"}
+          Read article
           <span aria-hidden="true">↗</span>
         </span>
       </div>
-    </Wrapper>
+    </Link>
   );
 }
 
@@ -120,8 +65,8 @@ export default function BlogSection() {
         </header>
 
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {POSTS.map((post) => (
-            <BlogCard key={post.id} post={post} />
+          {posts.map((post) => (
+            <BlogCard key={post.slug} post={post} />
           ))}
         </div>
 

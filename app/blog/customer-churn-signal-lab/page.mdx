@@ -1,0 +1,43 @@
+
+export const metadata = {
+  title: "Customer Churn Signal Lab",
+  description:
+    "Behind the churn experimentation stack: uplift modeling, event capture, and dashboards that ship retention decisions.",
+};
+
+import BlogArticleShell from "@/components/blog/article-shell";
+import ShareMenu from "@/components/blog/ShareMenu";
+
+<BlogArticleShell
+  title={metadata.title}
+  description={metadata.description}
+  date="Feb 2025"
+  readingTime="8 min"
+  category="MLOps"
+>
+
+<ShareMenu title={metadata.title} className="mb-8" />
+
+When we launched the retention initiative for a streaming product, our goal was simple: explain *who* was likely to leave and *why* we were missing signals. The execution required a disciplined blend of feature engineering, experimentation design, and storytelling.
+
+## Architecture Snapshot
+
+- Kafka captured product events and checkout signals in near real time.
+- dbt transformed cohorts + engagement metrics inside a warehouse with experiment flags.
+- Uplift models (XGBoost + causal forests) predicted segment-level response to save offers.
+- Grafana stitched metrics + qualitative insights into an executive-friendly dashboard.
+
+## Operating Model
+
+We ran two-week iterations that paired experiment owners with data scientists. Every new hypothesis shipped with:
+
+1. A feature checklist (events, join logic, guardrails).
+2. An uplift estimation notebook.
+3. A storytelling tile in Grafana that highlighted wins + watchouts.
+
+This workflow reduced the time to launch a new retention experiment from ~3 weeks to 8 days and gave marketing teams real-time context without needing a query.
+
+> Want the code? The repo has redacted notebooks and dbt models ready to fork.
+[Back to related projects](/projects#data-science)
+
+</BlogArticleShell>

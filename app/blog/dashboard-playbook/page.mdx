@@ -1,0 +1,39 @@
+'use client';
+
+export const metadata = {
+  title: "Dashboard Playbook: From Metric Friction to Adoption",
+  description:
+    "A repeatable rhythm for landing dashboards that executives and operators actually use.",
+};
+
+import BlogArticleShell from "@/components/blog/article-shell";
+import ShareMenu from "@/components/blog/ShareMenu";
+
+<BlogArticleShell
+  title={metadata.title}
+  description={metadata.description}
+  date="Dec 2024"
+  readingTime="10 min"
+  category="Analytics"
+>
+
+<ShareMenu title={metadata.title} className="mb-8" />
+
+Dashboards fail when they focus on charts over decisions. This playbook captures the ritual we used to move three product pods from ad-hoc spreadsheets to shared, high-trust dashboards.
+
+## The Ritual
+
+1. **Friction Interviews** – Capture the questions people ask before building visuals.
+2. **Metric Contracts** – Define owners, refresh cadence, and alert thresholds.
+3. **Storyboarding** – Build Figma wireframes with annotations, not just charts.
+4. **Pilot & Shadowing** – Sit in the meetings where the dashboard is used to observe gaps.
+5. **Adoption Review** – Measure usage, actionability, and backlog of improvements.
+
+## Toolchain Notes
+
+- Next.js served the dashboard shell with embedded Grafana panels.
+- Mode Analytics handled ad-hoc deep dives linked from each tile.
+- HubSpot webhooks and Slack reminders nudged teams when metrics went stale.
+[See related analytics projects](/projects#analytics)
+
+</BlogArticleShell>

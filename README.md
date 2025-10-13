@@ -15,6 +15,7 @@ A personal portfolio built with Next.js 15 and Tailwind CSS to showcase data eng
 - **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
 - **Language**: React 19 + JavaScript modules
 - **Styling**: [Tailwind CSS 3.4](https://tailwindcss.com/) with a custom color palette
+- **Content**: MDX-powered blog posts (App Router) registered via `app/blog/posts.ts`
 - **Icons**: [Lucide](https://lucide.dev/) and [react-icons](https://react-icons.github.io/react-icons/)
 - **Media**: Optimized images via `next/image` with responsive `sizes`
 
@@ -43,7 +44,7 @@ public/
 | Command         | Description                                   |
 |-----------------|-----------------------------------------------|
 | `npm install`   | Install dependencies                          |
-| `npm run dev`   | Start the dev server with Turbopack (port 3000) |
+| `npm run dev`   | Start the Next.js dev server (port 3000)        |
 | `npm run lint`  | Run ESLint (recommended before committing)     |
 | `npm run build` | Create the production build                    |
 | `npm run start` | Serve the production build                     |
@@ -58,7 +59,8 @@ public/
 
 - Update biography, experience highlights, and skill lists in `components/about/`.
 - Swap project metadata (titles, descriptions, links, images) in `components/projects/research.js` and `components/projects/blog-cta.js`.
-- Blog cards are hard-coded in `components/blog/section.js`; add or remove entries as needed.
+- Blog posts live in `app/blog/{slug}/page.mdx` with metadata in `app/blog/posts.ts`; update both when adding new articles.
+- Per-post share widgets render inside each MDX file—update the share title in the MDX front matter when adding new articles.
 - Media assets live in `public/`; replace placeholder imagery with your own photos or graphics.
 
 ## Deployment
@@ -69,4 +71,9 @@ public/
 4. Configure any custom domains in the Vercel project settings (optional).
 5. Future pushes to the connected branch automatically trigger new deployments.
 
+## Interactions & Limitations
 
+- Blog articles include a share menu that supports native sharing (when available), copy link, and external networks (LinkedIn, X, Reddit, Email).
+- No accounts, likes, or public comments are stored—everything renders statically.
+
+Looking to expand the portfolio? Ideas include interactive project filters, a CMS-backed blog, or integrating Lighthouse/analytics reports directly into the projects page.

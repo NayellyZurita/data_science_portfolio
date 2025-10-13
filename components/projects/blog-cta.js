@@ -8,7 +8,7 @@ export default function BlogCta() {
         <div className="relative order-2 mx-auto w-full max-w-xs overflow-hidden rounded-3xl bg-slate-900/60 md:order-1 md:max-w-sm">
           <div className="aspect-[4/5]">
             <Image
-              src="/blogging.png"
+              src="/futuristic-smart-city-with-5g-global-network-technology.jpg"
               alt="Illustration of blogging and storytelling"
               fill
               sizes="(min-width: 1024px) 320px, (min-width: 768px) 45vw, 80vw"

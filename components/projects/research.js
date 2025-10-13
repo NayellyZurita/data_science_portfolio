@@ -5,17 +5,17 @@ const TRACKS = [
   {
     id: "data-science",
     title: "Data Science",
-    blurb: "Analytics experimentation, causal inference, and insight automation.",
+    blurb: "Experimentation, modeling, and statistical insight loops.",
   },
   {
     id: "data-engineer",
     title: "Data Engineer",
-    blurb: "Pipelines, orchestration, and resilient data infrastructure.",
+    blurb: "Streaming, orchestration, and resilient data infrastructure.",
   },
   {
     id: "machine-learning",
     title: "AI-ML",
-    blurb: "Model development, evaluation, and real-time inference.",
+    blurb: "Model evaluation, deployment, and feedback guardrails.",
   },
   {
     id: "analytics",
@@ -28,86 +28,162 @@ const PROJECT_GROUPS = {
   "data-science": [
     {
       title: "Customer Churn Signal Lab",
-      description: "Segmented churn drivers with uplift modeling and experiment design dashboards.",
-      href: "#data-science",
+      description:
+        "Uplift modeling + experimentation framework that surfaces retention levers and narrative dashboards for product and marketing teams.",
       image: "/ai.jpg",
       imageAlt: "Abstract visualization of data science experimentation",
+      links: {
+        project: "https://github.com/nayellyzurita/churn-signal-lab",
+        notes: "/projects#data-science",
+        blog: "/blog/customer-churn-signal-lab",
+      },
     },
     {
       title: "Demand Forecasting Notebook",
-      description: "Hierarchical Prophet + XGBoost ensemble delivering SKU-level forecast lifts.",
-      href: "https://github.com/nayellyzurita",
-      external: true,
+      description:
+        "Hybrid Prophet + XGBoost ensemble that forecasts SKU demand, bundles notebook workflows, and auto-publishes data quality checks.",
       image: "/stock.jpg",
       imageAlt: "Forecasting chart for retail demand",
+      links: {
+        project: "https://github.com/nayellyzurita/demand-forecasting-notebook",
+        notes: "/projects#data-science",
+        blog: "/blog/dashboard-playbook",
+      },
     },
   ],
   "data-engineer": [
     {
       title: "Event Streaming Platform",
-      description: "Kafka to warehouse pipeline with CDC, observability SLIs, and IaC guardrails.",
-      href: "#data-engineer",
-      image: "/data-engineer.png",
-      imageAlt: "Data engineering pipeline illustration",
+      description:
+        "Kafka → TimescaleDB architecture on AWS with IaC, IAM guardrails, and Grafana oversight that powers real-time lab monitoring.",
+      image: "/Stream-data-arquitecture.jpg",
+      imageAlt: "Streaming data architecture sketch",
+      links: {
+        project: "https://github.com/nayellyzurita/event-streaming-platform",
+        notes: "/projects#data-engineer",
+        blog: "/blog/streaming-notebook-design",
+      },
     },
     {
       title: "Analytics Lakehouse",
-      description: "dbt + Iceberg stack powering BI and ML feature freshness across domains.",
-      href: "https://www.linkedin.com/in/nayelly-zurita",
-      external: true,
+      description:
+        "Iceberg + dbt stack orchestrated with Airflow to serve curated marts and feature stores across cross-functional analytics teams.",
       image: "/web.jpg",
       imageAlt: "Modern analytics workspace",
+      links: {
+        project: "https://github.com/nayellyzurita/analytics-lakehouse",
+        notes: "/projects#data-engineer",
+      },
     },
   ],
   "machine-learning": [
     {
       title: "Anomaly Detection Mesh",
-      description: "Streaming anomaly service using isolation forests and adaptive thresholds.",
-      href: "#machine-learning",
+      description:
+        "Isolation forest ensemble streaming through Flink to detect infrastructure drift with human-in-the-loop feedback loops.",
       image: "/artificial-intelligence.png",
       imageAlt: "Machine learning neural network graphic",
+      links: {
+        project: "https://github.com/nayellyzurita/anomaly-detection-mesh",
+        notes: "/projects#machine-learning",
+        blog: "/blog/vertex-pipelines-guardrails",
+      },
     },
     {
       title: "MLOps Benchmark",
-      description: "End-to-end vertex pipeline with CI/CD, model registry, and drift alerting.",
-      href: "https://github.com/nayellyzurita",
-      external: true,
+      description:
+        "Vertex AI pipeline reference implementation with automated evaluations, registry promotions, and cost telemetry.",
       image: "/security.png",
       imageAlt: "MLOps security and monitoring visuals",
+      links: {
+        project: "https://github.com/nayellyzurita/mlops-benchmark",
+        notes: "/projects#machine-learning",
+      },
     },
   ],
   analytics: [
     {
       title: "Executive Metrics Portal",
-      description: "Next.js analytics hub surfacing KPIs with drilldowns and commentary workflows.",
-      href: "#analytics",
+      description:
+        "Next.js analytics hub that stitches KPI drilldowns, commentary workflows, and ownership alerts into a single destination.",
       image: "/pro.jpg",
       imageAlt: "Analytics dashboard showcasing executive metrics",
+      links: {
+        project: "https://github.com/nayellyzurita/executive-metrics-portal",
+        notes: "/projects#analytics",
+        blog: "/blog/dashboard-playbook",
+      },
     },
     {
       title: "Realtime Ops Dashboard",
-      description: "Socket-powered dashboard surfacing ops metrics with alerting and user permissions.",
-      href: "https://nayelly.dev",
-      external: true,
+      description:
+        "Socket-powered operational dashboard with fine-grained permissions, alert routing, and snapshot exports for leadership.",
       image: "/geo.jpg",
       imageAlt: "Dashboard showing realtime operational metrics",
+      links: {
+        project: "https://github.com/nayellyzurita/realtime-ops-dashboard",
+        notes: "/projects#analytics",
+      },
     },
   ],
 };
 
-function ProjectLink({ project }) {
-  const isExternal = Boolean(project.external);
-  const linkProps = isExternal
-    ? { target: "_blank", rel: "noopener noreferrer", href: project.href }
-    : { href: project.href, scroll: true };
+const RESOURCE_TABS = [
+  { key: "project", label: "View Project" },
+  { key: "notes", label: "Read Case Notes" },
+  { key: "blog", label: "Read Blog" },
+];
 
-  const Wrapper = isExternal ? "a" : Link;
+const TAB_STYLES = {
+  project: {
+    base: "bg-teal/15 text-teal",
+    hover: "hover:bg-teal/30 hover:text-white",
+  },
+  notes: {
+    base: "bg-purple/15 text-purple",
+    hover: "hover:bg-purple/30 hover:text-white",
+  },
+  blog: {
+    base: "bg-sand/20 text-sand",
+    hover: "hover:bg-sand/40 hover:text-dark",
+  },
+};
+
+function ProjectLink({ project }) {
+  const tabs = RESOURCE_TABS.map((tab) => {
+    const href = project.links?.[tab.key];
+    if (!href) return null;
+
+    const isExternal = /^https?:\/\//.test(href);
+    const Component = isExternal ? "a" : Link;
+
+    const props = isExternal
+      ? { href, target: "_blank", rel: "noopener noreferrer" }
+      : { href };
+
+    const style = TAB_STYLES[tab.key] ?? {
+      base: "bg-slate-800/80 text-slate-200",
+      hover: "hover:bg-slate-700/80 hover:text-white",
+    };
+
+    return (
+      <Component
+        key={tab.key}
+        {...props}
+        className={`group flex-1 rounded-full px-3 py-2 text-center text-xs font-semibold uppercase tracking-wide transition ${style.base} ${style.hover}`}
+      >
+        <span className="inline-flex items-center justify-center gap-1">
+          <span>{tab.label}</span>
+          <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+            ↗
+          </span>
+        </span>
+      </Component>
+    );
+  }).filter(Boolean);
 
   return (
-    <Wrapper
-      {...linkProps}
-      className="group block h-full rounded-2xl border border-slate-700/60 bg-slate-900/60 p-6 transition-colors hover:border-teal/70 hover:bg-slate-900/90"
-    >
+    <div className="h-full rounded-2xl border border-slate-700/60 bg-slate-900/60 p-6 transition-colors hover:border-teal/70 hover:bg-slate-900/90">
       <div className="flex h-full flex-col gap-4">
         <div className="overflow-hidden rounded-xl bg-slate-800/60">
           {project.image ? (
@@ -117,7 +193,7 @@ function ProjectLink({ project }) {
                 alt={project.imageAlt ?? `${project.title} preview`}
                 fill
                 sizes="(min-width: 1024px) 420px, (min-width: 768px) 50vw, 90vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 hover:scale-105"
               />
             </div>
           ) : (
@@ -128,17 +204,16 @@ function ProjectLink({ project }) {
         </div>
 
         <div className="flex flex-1 flex-col">
-          <p className="text-lg font-semibold text-slate-100 group-hover:text-teal">
-            {project.title}
-          </p>
+          <p className="text-lg font-semibold text-slate-100">{project.title}</p>
           <p className="mt-2 text-sm text-slate-300">{project.description}</p>
-          <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-teal group-hover:text-white">
-            {isExternal ? "View case study" : "Jump to section"}
-            <span aria-hidden="true">↗</span>
-          </span>
+          {tabs.length > 0 && (
+            <div className="mt-6 rounded-full border border-slate-700/70 bg-slate-800/60 p-1">
+              <div className="flex flex-wrap gap-1">{tabs}</div>
+            </div>
+          )}
         </div>
       </div>
-    </Wrapper>
+    </div>
   );
 }
 
@@ -192,7 +267,7 @@ export default function ResearchProjectsSection() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-6xl px-6 py-20 space-y-24">
+      <div className="mx-auto max-w-6xl space-y-24 px-6 py-20">
         {TRACKS.map((track) => (
           <section key={track.id} id={track.id} className="scroll-mt-24">
             <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">

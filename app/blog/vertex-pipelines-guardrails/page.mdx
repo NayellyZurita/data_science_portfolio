@@ -1,0 +1,36 @@
+'use client';
+
+export const metadata = {
+  title: "Vertex Pipelines: Shipping Experiments with Guardrails",
+  description:
+    "How we tightened the research-to-prod loop with Vertex AI pipelines, Terraform, and automated drift checks.",
+};
+
+import BlogArticleShell from "@/components/blog/article-shell";
+import ShareMenu from "@/components/blog/ShareMenu";
+
+<BlogArticleShell
+  title={metadata.title}
+  description={metadata.description}
+  date="Nov 2024"
+  readingTime="7 min"
+  category="DevOps"
+>
+
+<ShareMenu title={metadata.title} className="mb-8" />
+
+When experiments graduated from notebooks, we needed a pipeline that enforced reviews, reproducibility, and drift monitoring. Vertex AI gave us the scaffolding—but the guardrails were a team effort.
+
+## Pipeline Highlights
+
+- Terraform provisions Vertex Pipelines, GCS, and Artifact Registry through GitOps.
+- GitHub Actions runs unit tests, style checks, and triggers pipeline updates per branch.
+- Model Registry promotions require signed-off evaluations and drift thresholds.
+- BigQuery + Dataform produce monitoring tables that feed Grafana and PagerDuty.
+
+## Results
+
+Model deployments dropped from quarterly to weekly without sacrificing reliability. Stakeholders can trace every experiment from prototype to production in under five clicks.
+[Go to machine learning projects](/projects#machine-learning)
+
+</BlogArticleShell>

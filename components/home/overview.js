@@ -32,17 +32,17 @@ export default function SectionsOverview() {
   ];
 
   return (
-    <section id="overview" className="relative isolate bg-dark text-white">
+    <section id="overview" className="relative isolate bg-grey text-white">
       {/* Intro header */}
       <div className="relative mx-auto flex min-h-[60vh] max-w-6xl flex-col items-center justify-center px-6 text-center">
-        <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-grey">
+        <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-dark">
           What you will find here
         </h2>
-        <p className="mt-4 max-w-3xl text-base sm:text-lg md:text-xl text-teal">
+        <p className="mt-4 max-w-3xl text-base sm:text-lg md:text-xl text-purple">
           A quick tour of the core sections—my background, hands-on builds, and writing.
         </p>
         <div className="mt-8 flex flex-col items-center gap-6">
-          <span className="text-[10px] text-teal tracking-[0.45em] uppercase">
+          <span className="text-[10px] text-purple tracking-[0.45em] uppercase">
             Scroll to Explore
           </span>
           <span className="h-10 w-px animate-pulse rounded bg-purple" />
