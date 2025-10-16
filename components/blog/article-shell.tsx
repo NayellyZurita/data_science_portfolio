@@ -55,7 +55,7 @@ export default function BlogArticleShell({
 
       <div className="relative mx-auto w-full max-w-3xl -mt-16 px-2 pb-24">
         <div className="rounded-[30px] bg-grey p-8">
-          <article className="prose prose-headings:tracking-tight prose-headings:text-dark prose-a:text-teal prose-a:no-underline hover:prose-a:underline prose-strong:text-dark prose-code:rounded prose-code:bg-slate-100 prose-code:px-2 prose-code:py-1">
+          <article className="prose prose-headings:tracking-tight prose-headings:text-dark prose-a:text-teal prose-a:no-underline hover:prose-a:underline prose-strong:text-dark prose-code:rounded prose-code:bg-slate-100 prose-code:px-2 prose-code:py-1 prose-pre:overflow-x-auto prose-pre:bg-slate-100 prose-pre:text-dark prose-pre:border prose-pre:border-slate-200 prose-pre:rounded-2xl prose-pre:p-4 prose-pre:shadow-sm">
             {children}
           </article>
 

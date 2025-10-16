@@ -6,7 +6,8 @@ const EXPERIENCES = [
     id: "exp-1",
     company: "Ensign College Tech-Lab",
     period: "2024 – 2025",
-    image: "/Grafana_Dashboard.jpg",
+    image: "/Ensign_College.png",
+    imageShape: "circle",
     roles: [
       { title: "Data Engineer" },
       { title: "Computer Science TA" },
@@ -34,6 +35,7 @@ const EXPERIENCES = [
     company: "The Finance Consulting Group",
     period: "2024-2024",
     image: "/web-dev.jpg",
+    imageShape: "rectangle",
     roles: [
       { title: "Web Developer" },
     ],
@@ -101,6 +103,25 @@ function RolesTimeline({ roles, period }) {
 }
 
 function ExperienceItem({ exp, reverse = false }) {
+  const isCircularImage = exp.imageShape === "circle";
+  const circleSizeClasses = "h-64 w-64";
+
+  const gradientFrameClasses = `relative bg-gradient-to-tr from-purple-600/70 to-teal-500/70 p-[6px] ${
+    isCircularImage ? `rounded-full ${circleSizeClasses}` : "rounded-3xl"
+  }`;
+
+  const imageFrameClasses = `${
+    isCircularImage ? "rounded-full bg-slate-900 p-3 h-full w-full" : "rounded-2xl bg-slate-900 p-2"
+  }`;
+
+  const imageClasses = `object-cover transition-transform duration-500 ease-out hover:scale-[1.02] ${
+    isCircularImage ? "rounded-full h-full w-full" : "rounded-2xl w-full h-[280px] md:h-[360px]"
+  }`;
+
+  const imageDimensions = isCircularImage
+    ? { width: 320, height: 320 }
+    : { width: 720, height: 480 };
+
   return (
     <div
       className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center ${
@@ -108,16 +129,15 @@ function ExperienceItem({ exp, reverse = false }) {
       }`}
     >
       {/* Image side */}
-      <div className="relative">
-        <div className="relative rounded-3xl p-[6px] bg-gradient-to-tr from-purple-600/70 to-teal-500/70">
-          <div className="rounded-2xl bg-slate-900 p-2">
+      <div className={`relative ${isCircularImage ? "flex justify-center" : ""}`}>
+        <div className={gradientFrameClasses}>
+          <div className={imageFrameClasses}>
             <Image
               src={exp.image}
               alt={`${exp.company} visual`}
-              width={720}
-              height={480}
-              className="rounded-2xl object-cover w-full h-[280px] md:h-[360px] 
-                         transition-transform duration-500 ease-out hover:scale-[1.02]"
+              width={imageDimensions.width}
+              height={imageDimensions.height}
+              className={imageClasses}
               priority
             />
           </div>

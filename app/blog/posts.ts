@@ -21,13 +21,13 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "optimizing-a-real-time-data-pipeline",
-    title: "Optimizing a Real-Time Data Pipeline: From Kafka Streams to Grafana Dashboards on AWS",
+    title: "Optimizing a Real-Time Data Pipeline on AWS",
     description:
-      "How I reduced latency and improved observability with TimescaleDB, PGbouncer, and continuous aggregates.",
-    date: "July 2025",
-    readingTime: "8 min",
+      "How I tuned Kafka, TimescaleDB, PGbouncer, and Grafana to keep real-time VM health dashboards fast and cost-efficient.",
+    date: "Mar 2025",
+    readingTime: "9 min",
     category: "Data Engineering",
-    image: "/data-engineer.png",
+    image: "/Grafana_Dashboard.jpg",
   },
   {
     slug: "dashboard-playbook",
