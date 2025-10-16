@@ -29,50 +29,27 @@ const PROJECT_GROUPS = {
     {
       title: "Customer Churn Signal Lab",
       description:
-        "Uplift modeling + experimentation framework that surfaces retention levers and narrative dashboards for product and marketing teams.",
-      image: "/ai.jpg",
+        "Working on this project...",
+      image: "/glowing-skyscrapers-illuminate-futuristic-cityscape-night-generated-by-ai.jpg",
       imageAlt: "Abstract visualization of data science experimentation",
       links: {
-        project: "https://github.com/nayellyzurita/churn-signal-lab",
-        notes: "/projects#data-science",
-        blog: "/blog/customer-churn-signal-lab",
-      },
-    },
-    {
-      title: "Demand Forecasting Notebook",
-      description:
-        "Hybrid Prophet + XGBoost ensemble that forecasts SKU demand, bundles notebook workflows, and auto-publishes data quality checks.",
-      image: "/stock.jpg",
-      imageAlt: "Forecasting chart for retail demand",
-      links: {
-        project: "https://github.com/nayellyzurita/demand-forecasting-notebook",
-        notes: "/projects#data-science",
-        blog: "/blog/dashboard-playbook",
+        project: "https://github.com/nayellyzurita",
+        notes: "",
+        blog: "/blog",
       },
     },
   ],
   "data-engineer": [
     {
-      title: "Event Streaming Platform",
+      title: "Real-Time Data Pipeline",
       description:
-        "Kafka → TimescaleDB architecture on AWS with IaC, IAM guardrails, and Grafana oversight that powers real-time lab monitoring.",
+        "Designed and optimized a Kafka-to-PostgreSQL/TimescaleDB streaming pipeline on AWS EC2 with PgBouncer and Grafana, achieving low-latency ingestion and real-time monitoring",
       image: "/Stream-data-arquitecture.jpg",
       imageAlt: "Streaming data architecture sketch",
       links: {
-        project: "https://github.com/nayellyzurita/event-streaming-platform",
-        notes: "/projects#data-engineer",
-        blog: "/blog/streaming-notebook-design",
-      },
-    },
-    {
-      title: "Analytics Lakehouse",
-      description:
-        "Iceberg + dbt stack orchestrated with Airflow to serve curated marts and feature stores across cross-functional analytics teams.",
-      image: "/web.jpg",
-      imageAlt: "Modern analytics workspace",
-      links: {
-        project: "https://github.com/nayellyzurita/analytics-lakehouse",
-        notes: "/projects#data-engineer",
+        project: "https://github.com/nayellyzurita",
+        notes: "",
+        blog: "/blog",
       },
     },
   ],
@@ -80,24 +57,13 @@ const PROJECT_GROUPS = {
     {
       title: "Anomaly Detection Mesh",
       description:
-        "Isolation forest ensemble streaming through Flink to detect infrastructure drift with human-in-the-loop feedback loops.",
-      image: "/artificial-intelligence.png",
+        "Working on this project...",
+      image: "/website-hosting-concept-with-circuits.jpg",
       imageAlt: "Machine learning neural network graphic",
       links: {
-        project: "https://github.com/nayellyzurita/anomaly-detection-mesh",
-        notes: "/projects#machine-learning",
-        blog: "/blog/vertex-pipelines-guardrails",
-      },
-    },
-    {
-      title: "MLOps Benchmark",
-      description:
-        "Vertex AI pipeline reference implementation with automated evaluations, registry promotions, and cost telemetry.",
-      image: "/security.png",
-      imageAlt: "MLOps security and monitoring visuals",
-      links: {
-        project: "https://github.com/nayellyzurita/mlops-benchmark",
-        notes: "/projects#machine-learning",
+        project: "https://github.com/nayellyzurita",
+        notes: "",
+        blog: "/blog",
       },
     },
   ],
@@ -105,24 +71,13 @@ const PROJECT_GROUPS = {
     {
       title: "Executive Metrics Portal",
       description:
-        "Next.js analytics hub that stitches KPI drilldowns, commentary workflows, and ownership alerts into a single destination.",
-      image: "/pro.jpg",
+        "Working on this project...",
+      image: "/web.jpg",
       imageAlt: "Analytics dashboard showcasing executive metrics",
       links: {
-        project: "https://github.com/nayellyzurita/executive-metrics-portal",
-        notes: "/projects#analytics",
-        blog: "/blog/dashboard-playbook",
-      },
-    },
-    {
-      title: "Realtime Ops Dashboard",
-      description:
-        "Socket-powered operational dashboard with fine-grained permissions, alert routing, and snapshot exports for leadership.",
-      image: "/geo.jpg",
-      imageAlt: "Dashboard showing realtime operational metrics",
-      links: {
-        project: "https://github.com/nayellyzurita/realtime-ops-dashboard",
-        notes: "/projects#analytics",
+        project: "https://github.com/nayellyzurita",
+        notes: "",
+        blog: "/blog",
       },
     },
   ],

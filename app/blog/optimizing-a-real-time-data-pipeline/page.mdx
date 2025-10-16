@@ -1,0 +1,108 @@
+
+export const metadata = {
+  title: "Optimizing a Real-Time Data Pipeline: From Kafka Streams to Grafana Dashboards on AWS",
+  description:
+    "How I reduced latency and improved observability with TimescaleDB, PGbouncer, and continuous aggregates.",
+};
+
+import BlogArticleShell from "@/components/blog/article-shell";
+import ShareMenu from "@/components/blog/ShareMenu";
+
+<BlogArticleShell
+  title={metadata.title}
+  description={metadata.description}
+  date="Mar 2025"
+  readingTime="8 min"
+  category="Data Engineering"
+>
+
+<ShareMenu title={metadata.title} className="mb-8" />
+
+When I joined the Tech Lab, our goal was to design a real-time monitoring pipeline capable of processing continuous streams of system metrics—such as CPU, memory, network, and process usage—and displaying them on a live Grafana dashboard.
+
+This project helped me explore how to balance speed, reliability, and scalability using a modern data stack centered on Kafka, TimescaleDB (PostgreSQL extension), PGbouncer, and Grafana—all deployed on an AWS EC2 instance.
+
+## 1. The Challenge: Streaming Without Latency
+
+Kafka acted as our message broker—constantly producing and consuming metrics from virtual machines. But as the stream grew, we faced a problem: queries to visualize the data in Grafana were getting slower as our dataset grew.
+
+Even though PostgreSQL is great for relational data, it’s not optimized for fast time-series queries by default. That’s where TimescaleDB came in.
+
+## 2. The Solution: TimescaleDB Continuous Aggregates
+
+TimescaleDB extends PostgreSQL with time-series features like hypertables, compression, and continuous aggregates. By using continuous aggregates, we precomputed metrics at different time intervals—drastically reducing query latency.
+
+For example, this snippet shows how I created 30-second and 12-hour CPU aggregates:
+
+```sql
+CREATE MATERIALIZED VIEW cagg_cpu_metrics_30s
+    WITH (timescaledb.continuous) AS
+SELECT time_bucket('30 seconds', timestamp) AS bucket,
+       host,
+       AVG(100 - usage_idle) AS avg_cpu_usage,
+       MAX(100 - usage_idle) AS max_cpu_usage
+FROM cpu_metrics
+WHERE cpu = 'cpu-total'
+GROUP BY bucket, host;
+
+SELECT add_continuous_aggregate_policy('cagg_cpu_metrics_30s',
+    start_offset => INTERVAL '5 minutes',
+    end_offset => INTERVAL '30 seconds',
+    schedule_interval => INTERVAL '30 seconds');
+```
+
+This policy automatically refreshed the aggregate every 30 seconds—ensuring that dashboards always had near real-time data, without overloading the database.
+
+## 3. Applying the Same Principle Across Metrics
+
+I repeated this pattern for memory, network, swap, and process data—each with tailored aggregation intervals:
+
+- **Memory**: averaged over 30-second and 12-hour windows
+- **Network**: hourly averages for bytes sent/received
+- **Processes & Swap**: hourly summaries for system behavior
+
+Each metric was managed with its own continuous aggregate policy, ensuring automatic background refresh and stable query times, even as data volume scaled.
+
+## 4. Database Connection Optimization: PGbouncer
+
+Another performance bottleneck appeared at the connection layer. Grafana and stream apps were opening too many connections to PostgreSQL. To solve this, I integrated PGbouncer—a lightweight connection pooler—between Grafana and TimescaleDB.
+
+This reduced connection overhead and stabilized the throughput of real-time queries, especially under high load.
+
+## 5. Deployment on AWS EC2
+
+The full stack ran on a single EC2 instance:
+
+- Kafka stream application (Docker container)
+- TimescaleDB with hypertables
+- PGbouncer for pooling
+- Grafana for visualization
+
+By containerizing each service, I achieved isolation, scalability, and easier maintenance.
+
+## 6. Results and Optimization Impact
+
+Before optimization, querying recent metrics could take 5–10 seconds. After applying continuous aggregates and PGbouncer:
+
+- Query latency dropped to under 1 second
+- Grafana dashboards updated in real time
+- The system remained stable under continuous load
+
+## 7. Key Lessons Learned
+
+- Stream ≠ Real-time—true real-time performance depends on downstream optimization.
+- Continuous aggregates are essential for handling large time-series datasets efficiently.
+- Connection pooling prevents resource exhaustion in multi-client environments.
+- Monitoring pipelines must be treated as living systems—continuously tuned as data grows.
+
+## Conclusion
+
+This project taught me how to optimize an end-to-end streaming architecture—from Kafka ingestion to Grafana visualization. It combined system design, database optimization, and DevOps principles into one cohesive project.
+
+Whether used for lab monitoring or production infrastructure, this approach provides a scalable pattern for low-latency real-time data pipelines.
+
+---
+
+**Tags:** Kafka, TimescaleDB, PostgreSQL, PGbouncer, Grafana, AWS, Real-Time Analytics
+
+</BlogArticleShell>

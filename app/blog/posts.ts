@@ -20,12 +20,12 @@ export const posts: BlogPost[] = [
     image: "/artificial-intelligence.png",
   },
   {
-    slug: "streaming-notebook-design",
-    title: "Designing a Streaming Notebook for Real-Time Insights",
+    slug: "optimizing-a-real-time-data-pipeline",
+    title: "Optimizing a Real-Time Data Pipeline: From Kafka Streams to Grafana Dashboards on AWS",
     description:
-      "Building a Kafka + TimescaleDB notebook that lets analysts reason about high-volume event streams without losing context.",
-    date: "Jan 2025",
-    readingTime: "6 min",
+      "How I reduced latency and improved observability with TimescaleDB, PGbouncer, and continuous aggregates.",
+    date: "July 2025",
+    readingTime: "8 min",
     category: "Data Engineering",
     image: "/data-engineer.png",
   },
