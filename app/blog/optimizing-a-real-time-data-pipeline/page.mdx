@@ -18,13 +18,11 @@ import ShareMenu from "@/components/blog/ShareMenu";
 
 <ShareMenu title={metadata.title} className="mb-8" />
 
-In our Tech Lab, I worked on building and optimizing a real-time monitoring pipeline for student virtual machines. The system collected streaming metrics (CPU, memory, network, process, and swap usage) using Kafka, stored them in TimescaleDB (PostgreSQL), and visualized insights in Grafana—all hosted on an AWS EC2 instance.
+In the Tech Lab, I worked on building and optimizing a real-time monitoring pipeline for student virtual machines. The system collected streaming metrics (CPU, memory, network, process, and swap usage so on) using Kafka, stored them in TimescaleDB (PostgreSQL), and visualized insights in Grafana, all hosted on an AWS EC2 instance.
 
 The main challenge was ensuring the pipeline could ingest continuous data streams efficiently and deliver near real-time dashboards without letting storage growth spiral out of control.
 
 ## Architecture Overview
-
-**Stack**
 
 - Kafka – message broker and stream producer
 - TimescaleDB (PostgreSQL) – time-series optimized storage
