@@ -15,7 +15,7 @@ export const posts: BlogPost[] = [
     description:
       "How uplift modeling, experimentation design, and layered dashboards exposed retention levers for a streaming product.",
     date: "Feb 2025",
-    readingTime: "8 min",
+    readingTime: "7 min",
     category: "MLOps",
     image: "/artificial-intelligence.png",
   },
@@ -25,7 +25,7 @@ export const posts: BlogPost[] = [
     description:
       "How I tuned Kafka, TimescaleDB, PGbouncer, and Grafana to keep real-time VM health dashboards fast and cost-efficient.",
     date: "Mar 2025",
-    readingTime: "9 min",
+    readingTime: "4 min",
     category: "Data Engineering",
     image: "/Grafana_Dashboard.jpg",
   },

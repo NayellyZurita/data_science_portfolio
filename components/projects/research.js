@@ -49,6 +49,18 @@ const PROJECT_GROUPS = {
       links: {
         project: "https://github.com/nayellyzurita",
         notes: "",
+        blog: "/blog/optimizing-a-real-time-data-pipeline",
+      },
+    },
+    {
+      title: "CRE Market Signals: End-to-End Data Pipeline Architecture",
+      description:
+        "Automated pipeline that ingests, transforms, and delivers real estate market data.",
+      image: "/CRE-Arquitecture-Diagram.png",
+      imageAlt: "CRE market signals pipeline diagram",
+      links: {
+        project: "https://github.com/NayellyZurita/CRE-Market-Signals",
+        notes: "",
         blog: "/blog",
       },
     },

@@ -12,7 +12,7 @@ import ShareMenu from "@/components/blog/ShareMenu";
   title={metadata.title}
   description={metadata.description}
   date="Mar 2025"
-  readingTime="9 min"
+  readingTime="6 min"
   category="Data Engineering"
 >
 
@@ -32,7 +32,7 @@ The main challenge was ensuring the pipeline could ingest continuous data stream
 
 Each metric (CPU, memory, network, etc.) was written to a hypertable in TimescaleDB. From there, I applied continuous aggregates and retention policies to balance performance and storage.
 
-![Grafana dashboard showing VM health metrics](/Grafana_Dashboard.jpg)
+![Stream data architecture components across AWS services](/Stream-data-arquitecture.jpg)
 
 ## Continuous Aggregates for Real-Time Analytics
 
@@ -87,6 +87,8 @@ Kafka consumers, continuous aggregate jobs, and Grafana dashboards all needed da
 ## Visualization with Grafana
 
 Grafana dashboards displayed CPU, memory, and disk usage trends, network throughput, active process counts, and overall system load. By querying continuous aggregates, panels refreshed every few seconds without noticeable delay.
+
+![Grafana dashboard showing VM health metrics](/Grafana_Dashboard.jpg)
 
 ## Key Takeaways
 
